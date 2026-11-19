@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Administración | CM2027</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo">
+        CM<span>2027</span>
+    </a>
+    <nav>
+        <a href="index.html">Inicio</a>
+    </nav>
+</header>
+
+<main class="admin-pagina">
+
+    <!-- INICIO DE SESIÓN -->
+    <section class="admin-login" id="seccionLogin">
+        <h1>Acceso administrativo</h1>
+        <p>
+            Ingresa con tu cuenta autorizada
+            para gestionar la conferencia.
+        </p>
+
+        <form id="formLogin">
+            <div class="admin-campo">
+                <label for="correoAdmin">Correo</label>
+                <input type="email"
+                       id="correoAdmin"
+                       autocomplete="username" required>
+            </div>
+
+            <div class="admin-campo">
+                <label for="passwordAdmin">
+                    Contraseña
+                </label>
+                <input type="password"
+                       id="passwordAdmin"
+                       autocomplete="current-password"
+                       required>
+            </div>
+
+            <button class="admin-btn ancho"
+                    id="btnLogin" type="submit">
+                Iniciar sesión
+            </button>
+
+            <p id="mensajeLogin"
+               class="admin-mensaje" role="alert"></p>
+        </form>
+    </section>
+
+    <!-- PANEL -->
+    <section class="admin-panel admin-oculto"
+             id="seccionPanel">
+
+        <div class="admin-encabezado">
+            <div>
+                <h1>Panel administrativo</h1>
+                <p>Conferencia Magistral 2027</p>
+            </div>
+
+            <div class="admin-acciones">
+                <a href="validar.html"
+                   class="admin-btn verde">
+                    Escanear QR
+                </a>
+
+                <button id="btnActualizar"
+                        class="admin-btn secundario">
+                    Actualizar
+                </button>
+
+                <button id="btnSalir"
+                        class="admin-btn secundario">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+
+        <!-- ESTADÍSTICAS -->
+        <div class="admin-estadisticas">
+            <div class="admin-estadistica">
+                <span>Asistentes registrados</span>
+                <strong id="totalRegistros">0</strong>
+            </div>
+
+            <div class="admin-estadistica">
+                <span>Entradas utilizadas</span>
+                <strong id="totalValidados">0</strong>
+            </div>
+
+            <div class="admin-estadistica">
+                <span>Pendientes de ingresar</span>
+                <strong id="totalPendientes">0</strong>
+            </div>
+        </div>
+
+        <!-- TABLA -->
+        <div class="admin-tabla-contenedor">
+            <h2>Gestión de asistentes</h2>
+
+            <div class="admin-tabla-scroll">
+                <table class="admin-tabla">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Asistente</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+                            <th>Asiento</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tablaAsistentes">
+                        <tr>
+                            <td colspan="7">
+                                Cargando registros...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="mensajePanel"
+               class="admin-mensaje"
+               role="status"></p>
+        </div>
+    </section>
+
+    <!-- FORMULARIO PARA EDITAR -->
+    <div class="modal-fondo admin-oculto"
+         id="modalEditar">
+
+        <section class="modal-contenido"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="tituloEditar">
+
+            <h2 id="tituloEditar">Editar asistente</h2>
+
+            <p>
+                Modifica los datos personales.
+                El asiento y el QR se conservarán.
+            </p>
+
+            <form id="formEditar">
+                <input type="hidden" id="editarId">
+
+                <div class="admin-campo">
+                    <label for="editarNombre">Nombre</label>
+                    <input type="text" id="editarNombre"
+                           minlength="2" maxlength="80"
+                           required>
+                </div>
+
+                <div class="admin-campo">
+                    <label for="editarApellidos">
+                        Apellidos
+                    </label>
+                    <input type="text" id="editarApellidos"
+                           minlength="2" maxlength="120"
+                           required>
+                </div>
+
+                <div class="admin-campo">
+                    <label for="editarCorreo">Correo</label>
+                    <input type="email" id="editarCorreo"
+                           maxlength="254" required>
+                </div>
+
+                <div class="admin-campo">
+                    <label for="editarTelefono">
+                        Teléfono
+                    </label>
+                    <input type="tel" id="editarTelefono"
+                           pattern="[0-9]{10}"
+                           maxlength="10" required>
+                </div>
+
+                <p class="admin-mensaje"
+                   id="mensajeEditar"
+                   role="alert"></p>
+
+                <div class="modal-acciones">
+                    <button type="button"
+                            id="btnCerrarEditar"
+                            class="admin-btn secundario">
+                        Cancelar
+                    </button>
+
+                    <button type="submit"
+                            id="btnGuardarEditar"
+                            class="admin-btn">
+                        Guardar cambios
+                    </button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <!-- CONFIRMACIÓN DE CANCELACIÓN -->
+    <div class="modal-fondo admin-oculto"
+         id="modalCancelar">
+
+        <section class="modal-contenido"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="tituloCancelar">
+
+            <h2 id="tituloCancelar">
+                Cancelar reserva
+            </h2>
+
+            <p id="textoCancelar"></p>
+
+            <p>
+                El asiento quedará disponible
+                y el código QR dejará de ser válido.
+            </p>
+
+            <p class="admin-mensaje"
+               id="mensajeCancelar"
+               role="alert"></p>
+
+            <div class="modal-acciones">
+                <button id="btnCerrarCancelar"
+                        class="admin-btn secundario">
+                    Volver
+                </button>
+
+                <button id="btnConfirmarCancelar"
+                        class="admin-btn peligro">
+                    Sí, cancelar reserva
+                </button>
+            </div>
+        </section>
+    </div>
+
+</main>
+
+<footer>
+    <p>
+        © 2027 Conferencia Magistral.
+        Panel administrativo.
+    </p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/admin.js"></script>
+
+</body>
+</html>

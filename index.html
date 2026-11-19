@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Conferencia Magistral</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            CM<span>2027</span>
+        </a>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#informacion">Evento</a>
+            <a href="registro.html" class="nav-btn">
+                Registrarme
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+
+            <div class="hero-content">
+
+                <div class="etiqueta">
+                    EVENTO ACADÉMICO 2027
+                </div>
+
+                <h1>
+                    CONFERENCIA
+                    <span>MAGISTRAL</span>
+                </h1>
+
+                <h2>
+                    Inteligencia Artificial:
+                    El Futuro de la Tecnología
+                </h2>
+
+                <p>
+                    Descubre cómo la inteligencia
+                    artificial está transformando
+                    nuestro mundo. Una experiencia
+                    de conocimiento, innovación
+                    e inspiración.
+                </p>
+
+                <div class="botones">
+
+                    <a href="registro.html"
+                       class="btn-principal">
+                        Reservar mi lugar
+                    </a>
+
+                    <a href="#informacion"
+                       class="btn-secundario">
+                        Conocer más
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-decoracion">
+                <div class="circulo">
+                    <div class="circulo-interno">
+                        AI
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="informacion" id="informacion">
+
+            <h2>Información del evento</h2>
+
+            <p class="subtitulo">
+                Prepárate para una experiencia única.
+            </p>
+
+            <div class="tarjetas">
+
+                <div class="tarjeta">
+                    <div class="tarjeta-icono">📅</div>
+                    <h3>Fecha y hora</h3>
+                    <p id="fecha-evento">
+                        Consultando evento...
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="tarjeta-icono">📍</div>
+                    <h3>Ubicación</h3>
+                    <p id="lugar-evento">
+                        Consultando ubicación...
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="tarjeta-icono">🎟️</div>
+                    <h3>Capacidad</h3>
+                    <p id="capacidad-evento">
+                        Consultando lugares...
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            © 2027 Conferencia Magistral.
+            Proyecto académico.
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+
+    <script>
+        async function cargarEvento() {
+            const { data, error } = await db
+                .from("eventos")
+                .select("*")
+                .order("id", { ascending: true })
+                .limit(1)
+                .single();
+
+            if (error) {
+                console.error(error);
+                document.getElementById(
+                    "fecha-evento"
+                ).textContent = "No disponible";
+                document.getElementById(
+                    "lugar-evento"
+                ).textContent = "No disponible";
+                document.getElementById(
+                    "capacidad-evento"
+                ).textContent = "No disponible";
+                return;
+            }
+
+            const fecha = new Date(data.fecha);
+
+            document.getElementById(
+                "fecha-evento"
+            ).textContent = fecha.toLocaleString(
+                "es-MX",
+                {
+                    dateStyle: "long",
+                    timeStyle: "short",
+                    timeZone: "America/Mexico_City"
+                }
+            );
+
+            document.getElementById(
+                "lugar-evento"
+            ).textContent = data.lugar;
+
+            document.getElementById(
+                "capacidad-evento"
+            ).textContent =
+                data.capacidad + " lugares";
+        }
+
+        cargarEvento();
+    </script>
+
+</body>
+</html>

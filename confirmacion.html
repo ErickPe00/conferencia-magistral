@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mi entrada | Conferencia Magistral</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/confirmacion.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            CM<span>2027</span>
+        </a>
+        <nav>
+            <a href="index.html">Inicio</a>
+        </nav>
+    </header>
+
+    <main class="confirmacion-pagina">
+
+        <section class="entrada" id="entrada">
+
+            <div class="entrada-superior">
+
+                <div class="entrada-marca">
+                    <div class="marca">
+                        CM<span>2027</span>
+                    </div>
+
+                    <div class="estado-reserva">
+                        ✓ RESERVA CONFIRMADA
+                    </div>
+                </div>
+
+                <h1>Tu entrada digital</h1>
+
+                <p class="descripcion-evento"
+                   id="nombreEvento">
+                    Conferencia Magistral
+                </p>
+
+            </div>
+
+            <div class="entrada-contenido"
+                 id="contenidoEntrada">
+
+                <div class="icono-confirmado">✅</div>
+
+                <h2>¡Registro exitoso!</h2>
+
+                <p class="texto-secundario">
+                    Tu lugar ha sido reservado.
+                    Presenta este código QR el día
+                    del evento para validar tu entrada.
+                </p>
+
+                <div class="qr-contenedor">
+
+                    <div id="codigoQR"></div>
+
+                    <p>ESCANEA PARA VALIDAR</p>
+
+                </div>
+
+                <div class="datos-entrada">
+
+                    <div class="dato">
+                        <span>Asistente</span>
+                        <strong id="nombreAsistente">
+                            --
+                        </strong>
+                    </div>
+
+                    <div class="dato">
+                        <span>Asiento asignado</span>
+                        <strong id="asientoAsignado"
+                                class="asiento-destacado">
+                            --
+                        </strong>
+                    </div>
+
+                    <div class="dato">
+                        <span>Fecha y hora</span>
+                        <strong id="fechaEvento">
+                            --
+                        </strong>
+                    </div>
+
+                    <div class="dato">
+                        <span>Ubicación</span>
+                        <strong id="lugarEvento">
+                            --
+                        </strong>
+                    </div>
+
+                </div>
+
+                <p class="identificador"
+                   id="identificadorQR"></p>
+
+                <div class="acciones-entrada">
+
+                    <button class="btn-descargar"
+                            id="btnDescargar"
+                            type="button">
+                        ⬇ Descargar código QR
+                    </button>
+
+                    <button class="btn-whatsapp"
+                            id="btnWhatsapp"
+                            type="button">
+                        Compartir confirmación
+                        por WhatsApp
+                    </button>
+
+                    <a href="index.html"
+                       class="btn-volver">
+                        Volver al inicio
+                    </a>
+
+                </div>
+
+                <p class="aviso-entrada">
+                    Conserva tu código QR.
+                    Es personal y permitirá
+                    validar una entrada.
+                </p>
+
+            </div>
+
+            <div class="error-confirmacion oculto"
+                 id="errorConfirmacion">
+
+                <h2>No encontramos tu confirmación</h2>
+
+                <p>
+                    Esta página solo muestra
+                    la reserva guardada durante
+                    tu sesión actual.
+                </p>
+
+                <a href="index.html"
+                   class="btn-volver"
+                   style="display:block;margin-top:20px">
+                    Volver al inicio
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            © 2027 Conferencia Magistral.
+            Proyecto académico.
+        </p>
+    </footer>
+
+    <!-- Librería para generar códigos QR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <!-- Lógica de la entrada -->
+    <script src="js/confirmacion.js"></script>
+
+</body>
+</html>

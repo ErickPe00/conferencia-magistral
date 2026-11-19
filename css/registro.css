@@ -1,0 +1,131 @@
+
+.registro-pagina {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 20px;
+    background:
+        radial-gradient(circle at 50% 15%,
+            #36205e 0%, transparent 50%),
+        #080c1b;
+}
+
+.registro-contenedor {
+    width: 100%;
+    max-width: 580px;
+    padding: 42px;
+    border-radius: 20px;
+    background: #141a30;
+    border: 1px solid #303653;
+    box-shadow: 0 20px 80px #00000050;
+}
+
+.registro-encabezado {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.registro-etiqueta {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #c4b5fd;
+    margin-bottom: 15px;
+}
+
+.registro-encabezado h1 {
+    font-size: 34px;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.registro-encabezado p {
+    color: #9ca3af;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.campo {
+    margin-bottom: 22px;
+}
+
+.campo label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 9px;
+    border: 1px solid #353b57;
+    background: #0b1021;
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.campo input:focus {
+    border-color: #a78bfa;
+    box-shadow: 0 0 0 3px #8b5cf622;
+}
+
+.campo input::placeholder {
+    color: #697286;
+}
+
+.privacidad {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 25px 0;
+    color: #b5bdd0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.privacidad input {
+    margin-top: 3px;
+    accent-color: #8b5cf6;
+}
+
+.btn-registro {
+    width: 100%;
+    padding: 17px;
+    background: linear-gradient(135deg,
+        #7c3aed, #a855f7);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-registro:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px #7c3aed55;
+}
+
+.mensaje {
+    margin-top: 18px;
+    text-align: center;
+    color: #fca5a5;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    .registro-contenedor {
+        padding: 28px 22px;
+    }
+
+    .registro-encabezado h1 {
+        font-size: 27px;
+    }
+}

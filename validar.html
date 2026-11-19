@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Validación QR | CM2027</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            CM<span>2027</span>
+        </a>
+
+        <nav>
+            <a href="admin.html">Administración</a>
+        </nav>
+    </header>
+
+    <main class="admin-pagina">
+
+        <section class="validador-panel">
+
+            <h1>Validación de entradas</h1>
+
+            <p>
+                Escanea el código QR de un asistente
+                o introduce su identificador para
+                registrar el acceso al evento.
+            </p>
+
+            <div id="accesoDenegado">
+                <p>
+                    Verificando acceso administrativo...
+                </p>
+                <a href="admin.html"
+                   class="admin-btn">
+                    Ir a iniciar sesión
+                </a>
+            </div>
+
+            <div id="contenidoValidador"
+                 class="admin-oculto">
+
+                <button id="btnIniciarCamara"
+                        type="button"
+                        class="admin-btn verde"
+                        style="margin-bottom:20px">
+                    Activar lector QR
+                </button>
+
+                <div id="lectorQR"></div>
+
+                <h2 style="margin-bottom:18px">
+                    Validación manual
+                </h2>
+
+                <form id="formValidacion">
+
+                    <div class="admin-campo">
+
+                        <label for="tokenEntrada">
+                            Identificador de entrada
+                        </label>
+
+                        <input type="text"
+                               id="tokenEntrada"
+                               placeholder="Pega aquí el UUID del QR"
+                               autocomplete="off"
+                               required>
+
+                    </div>
+
+                    <button type="submit"
+                            class="admin-btn ancho"
+                            id="btnValidar">
+                        Validar entrada
+                    </button>
+
+                </form>
+
+                <div id="resultadoValidacion"
+                     role="status"
+                     aria-live="polite"></div>
+
+                <a href="admin.html"
+                   class="admin-btn secundario"
+                   style="margin-top:25px">
+                    Volver al panel
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            © 2027 Conferencia Magistral.
+            Control de acceso.
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+
+    <script src="js/config.js"></script>
+    <script src="js/validar.js"></script>
+
+</body>
+</html>

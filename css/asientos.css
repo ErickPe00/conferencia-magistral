@@ -1,0 +1,239 @@
+
+.asientos-pagina {
+    min-height: 90vh;
+    padding: 65px 20px;
+    background:
+        radial-gradient(circle at 50% 5%,
+            #302052 0%, transparent 40%),
+        #080c1b;
+}
+
+.asientos-contenedor {
+    max-width: 900px;
+    margin: auto;
+}
+
+.asientos-encabezado {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.asientos-encabezado h1 {
+    font-size: clamp(30px, 5vw, 45px);
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+}
+
+.asientos-encabezado p {
+    color: #aeb7c8;
+    line-height: 1.7;
+}
+
+.auditorio {
+    background: #141a30;
+    border: 1px solid #303653;
+    border-radius: 22px;
+    padding: 40px 25px;
+}
+
+.escenario {
+    max-width: 500px;
+    margin: 0 auto 50px;
+    background: linear-gradient(
+        135deg,
+        #4c1d95,
+        #7c3aed
+    );
+    border-radius: 10px 10px 35px 35px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 15px 40px #7c3aed44;
+}
+
+.escenario span {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.zona-asientos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
+    overflow-x: auto;
+    padding: 15px 5px;
+}
+
+.fila-asientos {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: max-content;
+}
+
+.nombre-fila {
+    width: 27px;
+    color: #c4b5fd;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.asiento {
+    width: 46px;
+    height: 43px;
+    border: none;
+    border-radius: 9px 9px 5px 5px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.asiento.disponible {
+    background: #6d46d7;
+    color: white;
+    cursor: pointer;
+}
+
+.asiento.disponible:hover {
+    background: #9575f0;
+    transform: translateY(-4px);
+}
+
+.asiento.seleccionado {
+    background: #16a34a;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 20px #16a34a55;
+}
+
+.asiento.ocupado {
+    background: #475569;
+    color: #aeb7c8;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.asiento:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+.leyenda {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 40px;
+    color: #cbd5e1;
+    font-size: 13px;
+}
+
+.leyenda div {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.indicador {
+    width: 15px;
+    height: 15px;
+    border-radius: 4px;
+}
+
+.indicador.disponible {
+    background: #6d46d7;
+}
+
+.indicador.seleccionado {
+    background: #16a34a;
+}
+
+.indicador.ocupado {
+    background: #475569;
+}
+
+.resumen-reserva {
+    margin-top: 25px;
+    background: #141a30;
+    border: 1px solid #303653;
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.resumen-reserva h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.resumen-dato {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 17px 0;
+    border-bottom: 1px solid #303653;
+    font-size: 14px;
+}
+
+.resumen-dato span {
+    color: #9ca3af;
+}
+
+.btn-confirmar {
+    width: 100%;
+    padding: 17px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(
+        135deg, #7c3aed, #a855f7
+    );
+    color: white;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-confirmar:hover:not(:disabled) {
+    filter: brightness(1.15);
+}
+
+.btn-confirmar:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.mensaje-asientos {
+    margin-top: 15px;
+    font-size: 13px;
+    text-align: center;
+    color: #fca5a5;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .auditorio {
+        padding: 25px 12px;
+    }
+
+    .asiento {
+        width: 30px;
+        height: 34px;
+        font-size: 10px;
+    }
+
+    .fila-asientos {
+        gap: 4px;
+    }
+
+    .nombre-fila {
+        width: 17px;
+    }
+
+    .resumen-reserva {
+        padding: 25px 20px;
+    }
+}

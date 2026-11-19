@@ -1,0 +1,254 @@
+
+.confirmacion-pagina {
+    min-height: 90vh;
+    padding: 65px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            #382063 0%,
+            transparent 45%
+        ),
+        #080c1b;
+}
+
+.entrada {
+    width: 100%;
+    max-width: 590px;
+    background: #141a30;
+    border: 1px solid #353b57;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 90px #00000055;
+}
+
+.entrada-superior {
+    padding: 30px;
+    background: linear-gradient(
+        135deg,
+        #31205c,
+        #171c35
+    );
+}
+
+.entrada-marca {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 26px;
+}
+
+.marca {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.marca span {
+    color: #c4b5fd;
+}
+
+.estado-reserva {
+    padding: 8px 12px;
+    border-radius: 20px;
+    background: #14532d;
+    color: #bbf7d0;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.entrada-superior h1 {
+    font-size: 34px;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.descripcion-evento {
+    color: #c4b5fd;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.entrada-contenido {
+    padding: 35px 30px;
+    text-align: center;
+}
+
+.icono-confirmado {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.entrada-contenido h2 {
+    font-size: 24px;
+}
+
+.texto-secundario {
+    color: #aeb7c8;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 10px;
+}
+
+.qr-contenedor {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 22px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 18px;
+    color: #111827;
+}
+
+#codigoQR {
+    width: 220px;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#codigoQR canvas,
+#codigoQR img {
+    max-width: 100%;
+    height: auto;
+}
+
+.qr-contenedor p {
+    color: #374151;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.datos-entrada {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    text-align: left;
+    margin: 15px 0 25px;
+    padding: 25px;
+    border: 1px solid #303653;
+    border-radius: 14px;
+    background: #0e1429;
+}
+
+.dato span {
+    display: block;
+    color: #9ca3af;
+    font-size: 12px;
+    margin-bottom: 9px;
+}
+
+.dato strong {
+    color: #fff;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.dato .asiento-destacado {
+    font-size: 28px;
+    color: #c4b5fd;
+}
+
+
+.identificador {
+    font-size: 15px;
+    font-weight: 600;
+    color: #c4b5fd;
+    background: #0e1429;
+    border: 1px solid #7c3aed;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 25px;
+    overflow-wrap: anywhere;
+    user-select: text;
+}
+
+
+.acciones-entrada {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.acciones-entrada button,
+.acciones-entrada a {
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    transition: 0.2s;
+}
+
+.btn-descargar {
+    background: #7c3aed;
+    color: white;
+}
+
+.btn-descargar:hover {
+    background: #9561f0;
+}
+
+.btn-whatsapp {
+    background: #16a34a;
+    color: white;
+}
+
+.btn-whatsapp:hover {
+    background: #15803d;
+}
+
+.btn-volver {
+    background: #252c45;
+    color: #e5e7eb;
+}
+
+.btn-volver:hover {
+    background: #353e60;
+}
+
+.aviso-entrada {
+    margin-top: 22px;
+    color: #9ca3af;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.error-confirmacion {
+    padding: 30px;
+    text-align: center;
+    color: #fca5a5;
+}
+
+.oculto {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    .entrada-superior,
+    .entrada-contenido {
+        padding: 25px 20px;
+    }
+
+    .entrada-superior h1 {
+        font-size: 27px;
+    }
+
+    .datos-entrada {
+        padding: 18px;
+        gap: 18px;
+    }
+
+    .estado-reserva {
+        font-size: 10px;
+    }
+}

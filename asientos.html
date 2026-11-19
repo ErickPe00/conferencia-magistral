@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Seleccionar asiento | CM2027</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/asientos.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            CM<span>2027</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="registro.html">Registro</a>
+        </nav>
+    </header>
+
+    <main class="asientos-pagina">
+
+        <section class="asientos-contenedor">
+
+            <div class="asientos-encabezado">
+
+                <span class="etiqueta">
+                    PASO 2 DE 2
+                </span>
+
+                <h1>Selecciona tu asiento</h1>
+
+                <p>
+                    Elige un lugar disponible
+                    para asistir a nuestra
+                    Conferencia Magistral.
+                </p>
+
+            </div>
+
+            <div class="auditorio">
+
+                <div class="escenario">
+                    <span>ESCENARIO</span>
+                </div>
+
+                <div class="zona-asientos"
+                     id="zonaAsientos">
+
+                    <p>Cargando asientos...</p>
+
+                </div>
+
+                <div class="leyenda">
+
+                    <div>
+                        <span class="indicador disponible"></span>
+                        Disponible
+                    </div>
+
+                    <div>
+                        <span class="indicador seleccionado"></span>
+                        Seleccionado
+                    </div>
+
+                    <div>
+                        <span class="indicador ocupado"></span>
+                        Ocupado
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="resumen-reserva">
+
+                <h2>Resumen de tu reserva</h2>
+
+                <div class="resumen-dato">
+                    <span>Asistente</span>
+                    <strong id="nombreAsistente">--</strong>
+                </div>
+
+                <div class="resumen-dato">
+                    <span>Asiento</span>
+                    <strong id="asientoSeleccionado">
+                        Ninguno
+                    </strong>
+                </div>
+
+                <button id="btnConfirmar"
+                        class="btn-confirmar"
+                        disabled>
+                    Confirmar mi reserva
+                </button>
+
+                <p id="mensajeAsientos"
+                   class="mensaje-asientos"
+                   role="status"></p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            © 2027 Conferencia Magistral.
+            Proyecto académico.
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/asientos.js"></script>
+
+</body>
+</html>
